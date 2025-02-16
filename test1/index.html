@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Grafos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <a href="../hub.html"><button>voltar</button></a>
+
+        <h1 class="title">Gerador de Grafos</h1>
+        <form id="grafoForm">
+
+            <label for="dotInput">Insira o grafo em formato DOT</label><br>
+
+            <textarea name="dotInput" id="dotInput" rows="10" cols="50">
+digraph G {
+  A -> B [label=2];
+  A -> C [label=9];
+  A -> D [label=5];
+  B -> A [label=1];
+  B -> C [label=4];
+  B -> D [label=3];
+  C -> A [label=6];
+  C -> B [label=7];
+  C -> D [label=8];
+  D -> A [label=2];
+  D -> B [label=5];
+  D -> C [label=1];
+}
+             </textarea>
+
+            <div class="inputs">
+                <label for="origem">Origem:</label>
+                <input type="text" id="origem" name="origem" required><br>
+                <label for="destino">Destino:</label>
+                <input type="text" id="destino" name="destino" required><br>
+            </div>
+            <button type="submit">Gerar Grafo e Caminho Mínimo</button>
+
+        </form>
+
+        <div>
+            <h2>Grafo Original:</h2>
+            <div id="resultado">
+                <!-- A imagem gerada será exibida aqui -->
+            </div>
+
+            <h2>Caminho Mínimo:</h2>
+            <div id="resultadoMinimo">
+                <!-- A imagem de caminho mínimo será exibida aqui -->
+            </div>
+        </div>
+
+        <!-- Biblioteca Viz.js -->
+        <script src="https://cdn.jsdelivr.net/npm/viz.js@2.1.2/viz.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/viz.js@2.1.2/full.render.js"></script>
+        <script src="script.js"></script>
+    </div>
+</body>
+
+</html>

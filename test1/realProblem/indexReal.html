@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulação de Rotas de Entrega</title>
+    <link rel="stylesheet" href="styleReal.css">
+</head>
+<body>
+<a href="../../hub.html"><button>voltar</button></a>
+
+    <div class="container">
+    <h1>Simulação de Rotas de Entrega</h1>
+    <p>Escolha a origem e o destino para calcular a rota mais curta.</p>
+
+    <form id="rotaForm">
+        <label for="origem">Origem:</label>
+        <input type="text" id="origem" name="origem" required><br>
+        <label for="destino">Destino:</label>
+        <input type="text" id="destino" name="destino" required><br>
+        <button type="submit">Calcular Rota Mais Curta</button>
+    </form>
+
+    <div class="grafos-container">
+        <div>
+            <h2>Mapa de Rotas:</h2>
+            <div id="mapaRotas" class="grafo-completo">
+                <!-- O grafo completo será exibido aqui -->
+            </div>
+        </div>
+
+        <div>
+            <h2>Rota Mais Curta:</h2>
+            <div id="rotaMaisCurta" class="grafo-caminho">
+                <!-- A rota mais curta será exibida aqui -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Biblioteca Viz.js -->
+    <script src="https://cdn.jsdelivr.net/npm/viz.js@2.1.2/viz.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/viz.js@2.1.2/full.render.js"></script>
+    <script src="scriptReal.js"></script>
+</div>
+</body>
+</html>
