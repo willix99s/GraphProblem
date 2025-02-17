@@ -60,9 +60,64 @@ function parseDotToGraph(dotContent) {
     return grafo;
 }
 
-// FUNCTION algoritmo Viterbi adaptado para grafos
+// FUNCTION algoritmo Viterbi Grafos CAMINHO PROVAVEL
+// function viterbi(grafo, origem, destino) {
+//     const nos = Object.keys(grafo); 
+//     const probMax = {};       // Probabilidade máxima de cada nó
+//     const anteriores = {};     // Armazena o melhor caminho
+
+//     // Inicializa as probabilidades com -Infinity (log probabilidade negativa)
+//     nos.forEach(no => {
+//         probMax[no] = -Infinity;
+//         anteriores[no] = null;
+//     });
+//     probMax[origem] = 0; // Começamos com log(1) = 0 (probabilidade inicial 100%)
+
+//     // Fila de prioridade para os nós a serem visitados
+//     const nosNaoVisitados = new Set(nos);
+
+//     while (nosNaoVisitados.size > 0) {
+//         // Encontra o nó com a maior probabilidade atual
+//         let noAtual = null;
+//         for (const no of nosNaoVisitados) {
+//             if (noAtual === null || probMax[no] > probMax[noAtual]) {
+//                 noAtual = no;
+//             }
+//         }
+
+//         // Remove o nó atual da fila
+//         nosNaoVisitados.delete(noAtual);
+
+//         // Se chegamos ao destino, reconstruímos o caminho
+//         if (noAtual === destino) {
+//             const caminho = [];
+//             let no = destino;
+//             while (no !== null) {
+//                 caminho.unshift(no);
+//                 no = anteriores[no];
+//             }
+//             return caminho;
+//         }
+
+//         // Atualiza os vizinhos com a melhor probabilidade de transição
+//         for (const vizinho in grafo[noAtual]) {
+//             const probTransicao = Math.log(grafo[noAtual][vizinho]); // Log para somar probabilidades
+//             const novaProb = probMax[noAtual] + probTransicao;
+
+//             if (novaProb > probMax[vizinho]) {
+//                 probMax[vizinho] = novaProb;
+//                 anteriores[vizinho] = noAtual;
+//             }
+//         }
+//     }
+
+//     return null; // Caminho não encontrado
+// }
+
+
+// FUNCTION algoritmo Viterbi Grafos ADAPTADO(Caminho Mínimo) 
 function viterbi(grafo, origem, destino) {
-    const nos = Object.keys(grafo);
+    const nos = Object.keys(grafo); // Obtém todos os nós do grafo
     const distancias = {};
     const anteriores = {};
 
